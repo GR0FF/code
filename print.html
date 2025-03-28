@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+@page :first {
+  margin-left: 40%;
+  margin-top: 50%;
+}
+
+@page :left {
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+@page :right {
+  margin-left: 90%;
+  margin-top: 90%;
+}
+
+p {
+  page-break-after: always;
+}
+</style>
+</head>
+<body>
+
+<h1>Demo of @page</h1>
+
+<p>First Page!</p>
+<p>Second Page!</p>
+<p>Third Page!</p>
+<p>Click on the button to send the document to the printer, and see how it looks in print preview!</p>
+<button>Print Page</button>
+
+<script>
+document.querySelector("button").addEventListener("click", () => {
+  window.print();
+});
+</script>
+
+</body>
+</html>

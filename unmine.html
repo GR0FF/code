@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cal Unmine</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div>
+    <p>
+      <h1>cal<i>cal</i>cal</h1>
+    </p>
+    <input type="number" id="idconst" value="1.000000000000">
+    <br>
+    <input type="number" id="idmine" value="." required="">
+    <br>
+    <input type="button" id="cal" value="Cal" onclick="cal() ">
+    <br>
+    <p id="show"></p>
+  </div>
+  <script>
+    function cal() {
+      let con = document.getElementById('idconst').value;
+      let mine = document.getElementById('idmine').value;
+      let result = con-mine;
+      document.getElementById('show').innerHTML = result;
+    }
+  </script>
+  <script>
+    function cal() {
+      // Get input values
+      let con = ensure12Digits(document.getElementById('idconst').value);
+      let mine = ensure12Digits(document.getElementById('idmine').value);
+
+      // Perform subtraction
+      let result = (parseFloat(con) - parseFloat(mine)).toFixed(12);
+
+      // Display the result
+      document.getElementById('show').innerHTML = 
+        `<strong>Result:</strong> ${result}`;
+    }
+    </script>
+    <script>
+    function cal(){
+    function ensure12Digits(value) {
+      // Split the value into integer and decimal parts
+      let [integerPart, decimalPart = ""] = value.split(".");
+
+      // Ensure the integer part has at least 1 digit
+      if (integerPart === "") integerPart = "0";
+
+      // Pad the decimal part to make it exactly 12 digits
+      decimalPart = decimalPart.padEnd(12, "0").slice(0, 12);
+
+      // Return the corrected 12-digit value
+      return `${integerPart}.${decimalPart}`;
+    }
+
+    // Auto-correct inputs on blur (when focus leaves the input field)
+    document.getElementById('idconst').addEventListener("blur", function() {
+      this.value = ensure12Digits(this.value);
+    });
+
+    document.getElementById('idmine').addEventListener("blur", function() {
+      this.value = ensure12Digits(this.value);
+    });
+
+    // Ensure inputs default to 12-digit values on page load
+    window.onload = function () {
+      document.getElementById('idconst').value = ensure12Digits(document.getElementById('idconst').value);
+      document.getElementById('idmine').value = ensure12Digits(document.getElementById('idmine').value);
+    };
+    }
+  </script>
+</body>
+</html>

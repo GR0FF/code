@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  :root{/* Color Code */
+    /*| [:root] function [{
+      [--var] [:] [value] }] |*/
+      --body: skyblue; /* [--body] variable [:] [color] value*/
+      --primary: magenta;
+      --secondry:black;
+      --third:greenyellow;
+    }
+    body{
+      display: flax;
+      background-color: var(--body);
+      background: linear-gradient(to left,var(--primary),greenyellow,gold,silver);
+    }{
+      top: 50%;
+      bottom: 50%;
+      left: 50%;
+      right: 50%;
+    }
+    .rotate{
+      object-fit: auto;
+      word-wrap: break-word;
+      background: linear-gradient(to left,hotpink,greenyellow,gold,silver);
+      text-align: center;
+      box-shadow: red -36deg;
+      width: 90%;
+      height: 90%;
+      border-radius: 5%;
+      border: none;
+      animation: rotate 9s infinite;
+    }@keyframes rotate{
+      10%{
+        rotate: 30deg;
+      }
+      10%{
+        rotate: -45deg;
+      }
+      10%{
+        rotate: 60deg;
+      }
+      10%{
+        rotate: -90deg;
+      }
+      10%{
+        rotate: 120deg;
+      }
+      10%{
+        rotate: -160deg;
+      }
+      10%{
+        rotate: 180deg;
+      }
+      10%{
+        rotate: -240deg;
+      }
+      10%{
+        rotate: 260deg;
+      }
+      10%{
+        rotate: -300deg;
+      }
+    }
+    .input{
+      object-fit: auto;
+      border: none;
+      width: 100%;
+      height: 100%;
+      /*width: clamp(20px,50vw,800px);
+      height: clamp(20px,50vw,80px);*/
+      background: linear-gradient(to right,var(--primary),var(--secondry),var(--body));
+      background-clip: text;
+      color: transparent;
+      font-size: 45px;
+    }
+  </style>
+</head>
+<body>
+  <br><br><br><br><br><br><br><br>
+  <div class="rotate">
+    <input type="text" class="input" id="ss">
+  </div>
+  <div class="rotate">
+    <input type="text" class="input" id="ss1">
+  </div>
+  <div class="rotate">
+    <input type="text" class="input" id="ss2">
+  </div>
+  <script>
+    var a=document.getElementById("ss");
+    var aa=document.getElementById("ss1");
+    var aaa=document.getElementById("ss2");
+    //
+    const Error=("Error")
+    // 
+    let sp=(" ");
+    let b=("Hii");
+    let c=("I");
+    let d=("Am");
+    let e=("Rohan");
+    
+    //print:{}
+    var m= (b+sp+c+sp+d+sp+e);
+    //
+    const x=(a);
+    const y=(aa);
+    const z=(aaa);
+    //
+   let print=[x,y,z];
+    //
+    print.forEach((print) => {
+            if (print) {
+                print.value = m;
+            }else console.log(Error)
+        });
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            transition-delay: .9s;
+        }@media screen(max-width: 600px){
+          body{
+            font-size: 25px;
+            background-color: pink;
+          }
+        }
+        }@media screen(max-width: 900px){
+          body{
+            font-size: 45px;
+            background-color: green;
+          }
+        }
+        }@media screen(max-width: 1000px){
+          body{
+            font-size: 85px;
+            background-color: red;
+          }
+        }
+        table {
+            width: 100%;
+            height: 100vh;
+            border-collapse: collapse;
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+        }
+        
+        th, td {
+            padding: -2px;
+            margin: 0;
+            text-align: center;
+            word-break: break-all;
+            color: #0f0;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 12px;
+            overflow: hidden;
+        }
+        
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            text-align: center;
+            font-size: 12px;
+            font-family: monospace;
+            color: #0f0;
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix"></div>
+    <table>
+        <thead>
+            <!-- Table headers if needed -->
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const matrixElement = document.querySelector(".matrix");
+        const tableBody = document.querySelector("tbody");
+
+        // Function to generate a matrix effect in the background
+        function generateMatrix() {
+            let matrix = "";
+            for (let i = 0; i < 1000; i++) {
+                matrix += Math.floor(Math.random() * 2) === 0 ? "0" : "1";
+                if (i % 50 === 0) {
+                    matrix += "<br>";
+                }
+            }
+            matrixElement.innerHTML = matrix;
+        }
+
+        // Function to generate a row of unique random data
+        function generateRowData() {
+            const row = document.createElement("tr");
+
+            // Binary Column 1
+            const binaryCell1 = document.createElement("td");
+            binaryCell1.textContent = Array(8).fill(0).map(() => Math.floor(Math.random() * 2)).join("");
+            row.appendChild(binaryCell1);
+
+            // Hex Column
+            const hexCell = document.createElement("td");
+            hexCell.textContent = Array(8).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join("");
+            row.appendChild(hexCell);
+
+            // Binary Column 2
+            const binaryCell2 = document.createElement("td");
+            binaryCell2.textContent = Array(8).fill(0).map(() => Math.floor(Math.random() * 2)).join("");
+            row.appendChild(binaryCell2);
+
+            // Alphabet Column
+            const alphaCell = document.createElement("td");
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            alphaCell.textContent = Array(8).fill(0).map(() => chars[Math.floor(Math.random() * chars.length)]).join("");
+            row.appendChild(alphaCell);
+
+            // Binary Column 3
+            const binaryCell3 = document.createElement("td");
+            binaryCell3.textContent = Array(8).fill(0).map(() => Math.floor(Math.random() * 2)).join("");
+            row.appendChild(binaryCell3);
+
+            // Special Character Column
+            const specialCell = document.createElement("td");
+            const specialChars = "!@#$%^&*()_+-={}:<>?,./ 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+            specialCell.textContent = Array(8).fill(0).map(() => specialChars[Math.floor(Math.random() * specialChars.length)]).join("");
+            row.appendChild(specialCell);
+
+            return row;
+        }
+
+        // Function to generate the table and shift rows up
+        function generateTable() {
+            const rows = tableBody.rows;
+            const numRows = rows.length;
+
+            // Move all rows up
+            for (let i = 1; i < numRows; i++) {
+                rows[i - 1].innerHTML = rows[i].innerHTML; // Shift data up
+            }
+
+            // Generate new unique data for the last row
+            const newRow = generateRowData();
+            newRow.style.backgroundColor = '#f643d1'; // Change background color for the last row
+            tableBody.appendChild(newRow);
+        }
+
+        // Initialize the table with initial rows and start the process
+        function initializeTable() {
+            for (let i = 0; i < 100; i++) {
+                tableBody.appendChild(generateRowData()); // Fill the table with initial data
+            }
+            generateMatrix(); // Start matrix effect in the background
+            generateTable();  // Start generating the table rows
+
+            setInterval(() => {
+                generateMatrix(); // Keep updating the matrix effect
+                generateTable();  // Keep updating the table by shifting rows and inserting new data
+            }, 200); // Update every 500ms
+        }
+
+        // Call the initialization function to start the process
+        initializeTable();
+
+    </script>
+</body>
+</html>
