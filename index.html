@@ -1,59 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>index</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
     <style>
-    body{
-      background-color: greenyellow;
-    }
-    .newpage{
-      padding: 0;
-      margin: 0;
-    }
-      .newpage h1{
-        text-align: center;
-        padding-top: 0;
-        margin-top: 0;
-        font-size: 30px;
-        backface-visibility: .5s;
-        border: solid 3px;
-        border-color: red;
-        border-radius: 30%;
-        border-width: 5px;
-      }
-      h1{
-        width: 100%;
-      background: linear-grandient(to right, green, tomato;
-      background-clip: text;
-      color: transparent;
-      border: 1px solid linear-grandient(to right, blue, green);
-      width: clamp(10px,20vh,40px);
-      }
+        /* Nav Bar Styling */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
     </style>
-<script src="./.script/include.2x2.di_di.js"></script>
-  </head>
+</head>
 <body>
-  <!---External html page add---
-  <div class="externalhtml">
-    <div include-html=",/../../code/index/iTi_home.html">
-      <script src="include.2x2.didi.js"></script>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./.locolhost.in/html/about.html">About</a>
+        <a href="./.locolhost.in/html/services.html">Services</a>
+        <a href="./.locolhost.in/html/contact.html">Contact</a>
+        <a href="./.locolhost.in/html/login.html">login</a>
+        <a href="./.locolhost.in/hml/register.html">Contact</a>
     </div>
-    <div include-html="./../code/about/about.html">
-      <script src="include.2x2.didi.js"></script>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple home page with a navigation bar.</p>
     </div>
-    <div include-html="./../code/trade/trade.html">
-      <script src="include.2x2.didi.js"></script>
-    </div>
-    <div include-html="./../html/index.html">
-      <script src="include.2x2.didi.js"></script>
-    </div>
-      <script src="./.script/include.2x2.didi.js"></script></div>
-  </div>
-  ---External html page End--->
-  
-  <div class="newpage"><a href="./.html/rotate.html"><h1>Rotate</h1></div>
-  <div class="newpage"><a href="./.html/print.html"><h1>Print Demo</h1></a></div>
-  <div class="newpage"><a href="./.html/location.html"><h1>Host&lang;Location</h1></a></div>
-    <div include-html="./../index.html">
+
 </body>
 </html>
